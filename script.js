@@ -32,7 +32,7 @@ setInterval(() => {
 }, 1000);
 const birthday = new Date().getTime() + (
     (1 * 60 * 60 * 1000) + // 1 hour
-    (18 * 60 * 1000)       // 18 minutes
+    (17 * 60 * 1000)       // 18 minutes
 );
 if (distance < 0) {
     document.getElementById("countdown").innerHTML =
