@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Birthday Monkey❤️</title>
+    <title>Happy Birthday Monkey ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<div class="hearts">
+    <span>❤️</span>
+    <span>💖</span>
+    <span>💕</span>
+    <span>💗</span>
+    <span>💞</span>
+</div>
+
 <section class="hero">
-    <h1>Happy Birthday Mera monkey ❤️</h1>
+    <h1>Happy Birthday Mera Monkey ❤️</h1>
+
     <p>This surprise is made just for you.</p>
 
     <button onclick="showSurprise()">
@@ -16,56 +26,57 @@
 </section>
 
 <section id="surprise" class="hidden">
-    <h2>You are the most beautiful thing that happened to me❤️</h2>
+
+    <h2>You are the most beautiful thing that happened to me ❤️</h2>
+
     <p>
         Thank you for being part of my life.
         Every moment with you is majestic.
     </p>
+
 </section>
 
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-</body>
-</html>
-<div class="hearts">
-    <span>❤️</span>
-    <span>💖</span>
-    <span>💕</span>
-    <span>💗</span>
-    <span>💞</span>
-</div>
 <h2>Countdown to Your Birthday 🎂</h2>
 
 <div id="countdown">
     Loading...
 </div>
+
 <section class="gallery">
 
     <h2>Our Beautiful Memories ❤️</h2>
 
     <div class="gallery-container">
 
-        <img src="images/photo1.jpg.jpeg" alt="">
-        <img src="images/photo2.jpg.jpeg" alt="">
-        <img src="images/photo3.jpg.jpeg" alt="">
-        <img src="images/photo4.jpg.jpeg" alt="">
-        <img src="images/photo5.jpg.jpeg" alt="">
+        <img src="images/photo1.jpeg" alt="">
+        <img src="images/photo2.jpeg" alt="">
+        <img src="images/photo3.jpeg" alt="">
+        <img src="images/photo4.jpeg" alt="">
+        <img src="images/photo5.jpeg" alt="">
 
     </div>
 
 </section>
+
 <button onclick="birthdaySurprise()">
-    Click For Birthday Magic 🎁
+    Click For Birthday Magic 🎉
 </button>
+
 <section class="reasons">
 
-    <h2>few Reasons Why I Love You ❤️</h2>
+    <h2>Reasons Why I Love You ❤️</h2>
 
-    <div id="reasonContainer"></div>
+    <button onclick="showReason()">
+        Reveal Another Reason ❤️
+    </button>
+
+    <h3 id="reason"></h3>
 
 </section>
-<button onclick="showReason()">
-    Reveal Another Reason ❤️
-</button>
 
-<h3 id="reason"></h3>
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
