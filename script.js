@@ -1,31 +1,47 @@
+// Surprise Section
 function showSurprise() {
     document.getElementById("surprise").style.display = "block";
 }
 
-// Countdown
-const birthday = new Date().getTime() + ((1 * 60 + 18) * 60 * 1000);
+// Countdown to Midnight
+const now = new Date();
+
+const birthday = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + 1, // tomorrow
+    0, 0, 0, 0        // 12:00 AM
+).getTime();
 
 function updateCountdown() {
 
     const countdown = document.getElementById("countdown");
 
-    if (!countdown) return;
-
-    const now = new Date().getTime();
-    const distance = birthday - now;
+    const currentTime = new Date().getTime();
+    const distance = birthday - currentTime;
 
     if (distance <= 0) {
-        countdown.innerHTML = "🎉 Happy Birthday My Love ❤️";
+
+        countdown.innerHTML =
+            "🎉 HAPPY BIRTHDAY MERA MONKEY ❤️🎂";
+
         birthdaySurprise();
+
         return;
     }
 
-    const hours = Math.floor(distance / (1000 * 60 * 60));
-    const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
+    const hours = Math.floor(
+        distance / (1000 * 60 * 60)
     );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
     const seconds = Math.floor(
-        (distance % (1000 * 60)) / 1000
+        (distance % (1000 * 60))
+        / 1000
     );
 
     countdown.innerHTML =
@@ -35,14 +51,23 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Confetti
+// Confetti Burst
 function birthdaySurprise() {
+
     if (typeof confetti === "function") {
+
         confetti({
-            particleCount: 250,
+            particleCount: 300,
             spread: 180,
             origin: { y: 0.6 }
         });
+
+        setTimeout(() => {
+            confetti({
+                particleCount: 200,
+                spread: 120
+            });
+        }, 1000);
     }
 }
 
@@ -50,32 +75,33 @@ function birthdaySurprise() {
 const reasons = [
     "Your smile ❤️",
     "Your laugh ❤️",
+    "Your eyes ❤️",
     "Your kindness ❤️",
     "Your support ❤️",
-    "Your eyes ❤️",
-    "Your honesty ❤️",
     "Your hugs ❤️",
     "Your voice ❤️",
+    "Your honesty ❤️",
     "Your patience ❤️",
-    "Everything about you ❤️"
+    "You make every day better ❤️"
 ];
 
 let current = 0;
 
 function showReason() {
 
-    const reason = document.getElementById("reason");
+    const reasonElement =
+        document.getElementById("reason");
 
     if (current < reasons.length) {
 
-        reason.innerHTML =
+        reasonElement.innerHTML =
             `❤️ ${current + 1}. ${reasons[current]}`;
 
         current++;
 
     } else {
 
-        reason.innerHTML =
-            "❤️ Infinite reasons remain ❤️";
+        reasonElement.innerHTML =
+            "❤️ There are countless more reasons why I love you ❤️";
     }
 }
