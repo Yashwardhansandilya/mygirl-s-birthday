@@ -1,57 +1,13 @@
-// Surprise Section
+// Open Surprise Button
 function showSurprise() {
-    document.getElementById("surprise").style.display = "block";
-}
+    const surprise = document.getElementById("surprise");
 
-// Countdown to Midnight
-const now = new Date();
-
-const birthday = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate() + 1, // tomorrow
-    0, 0, 0, 0        // 12:00 AM
-).getTime();
-
-function updateCountdown() {
-
-    const countdown = document.getElementById("countdown");
-
-    const currentTime = new Date().getTime();
-    const distance = birthday - currentTime;
-
-    if (distance <= 0) {
-
-        countdown.innerHTML =
-            "🎉 HAPPY BIRTHDAY MERA MONKEY ❤️🎂";
-
-        birthdaySurprise();
-
-        return;
+    if (surprise) {
+        surprise.style.display = "block";
     }
-
-    const hours = Math.floor(
-        distance / (1000 * 60 * 60)
-    );
-
-    const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
-
-    const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
-
-    countdown.innerHTML =
-        `${hours}h ${minutes}m ${seconds}s`;
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// Confetti Burst
+// Confetti Function
 function birthdaySurprise() {
 
     if (typeof confetti === "function") {
@@ -67,9 +23,26 @@ function birthdaySurprise() {
                 particleCount: 200,
                 spread: 120
             });
-        }, 1000);
+        }, 800);
+
     }
 }
+
+// Countdown already completed
+window.onload = function () {
+
+    const countdown =
+        document.getElementById("countdown");
+
+    if (countdown) {
+
+        countdown.innerHTML =
+        "🎉 HAPPY BIRTHDAY MERA MONKEY ❤️🎂";
+
+    }
+
+    birthdaySurprise();
+};
 
 // Reasons
 const reasons = [
@@ -89,19 +62,22 @@ let current = 0;
 
 function showReason() {
 
-    const reasonElement =
+    const reason =
         document.getElementById("reason");
+
+    if (!reason) return;
 
     if (current < reasons.length) {
 
-        reasonElement.innerHTML =
-            `❤️ ${current + 1}. ${reasons[current]}`;
+        reason.innerHTML =
+        `❤️ ${current + 1}. ${reasons[current]}`;
 
         current++;
 
     } else {
 
-        reasonElement.innerHTML =
-            "❤️ There are countless more reasons why I love you ❤️";
+        reason.innerHTML =
+        "❤️ There are countless more reasons why I love you ❤️";
+
     }
 }
