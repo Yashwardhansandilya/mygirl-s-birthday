@@ -30,10 +30,7 @@ setInterval(() => {
         `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
 
 }, 1000);
-const birthday = new Date().getTime() + (
-    (1 * 60 * 60 * 1000) + // 1 hour
-    (17 * 60 * 1000)       // 18 minutes
-);
+
 if (distance < 0) {
     document.getElementById("countdown").innerHTML =
         "🎉 Surprise! Happy Birthday My Love ❤️";
@@ -77,7 +74,6 @@ const reasons = [
 "Your laugh",
 "Your kindness",
 "Your support"
-    // Add remaining reasons
 ];
 
 function showReason(){
