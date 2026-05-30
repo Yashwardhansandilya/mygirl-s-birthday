@@ -1,7 +1,7 @@
 function showSurprise() {
     document.getElementById("surprise").style.display = "block";
 }
-const birthday = new Date("2026-09-15 00:00:00").getTime();
+const birthday = new Date("2026-05-31 00:00:00").getTime();
 
 setInterval(() => {
 
