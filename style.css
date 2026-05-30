@@ -92,3 +92,9 @@ button:hover{
         opacity: 0;
     }
 }
+#countdown {
+    font-size: 2rem;
+    color: #ff1493;
+    font-weight: bold;
+    margin-top: 20px;
+}
