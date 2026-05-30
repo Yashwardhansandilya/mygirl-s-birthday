@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#ffe6f0;
+    text-align:center;
+}
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    color:#ff1493;
+    font-size:3rem;
+}
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:10px;
+    background:#ff1493;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.hidden{
+    display:none;
+}
+
+#surprise{
+    padding:50px;
+}
