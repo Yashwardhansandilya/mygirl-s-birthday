@@ -1,88 +1,81 @@
 function showSurprise() {
     document.getElementById("surprise").style.display = "block";
 }
-const birthday = new Date("2026-05-31 00:00:00").getTime();
 
-setInterval(() => {
+// Countdown
+const birthday = new Date().getTime() + ((1 * 60 + 18) * 60 * 1000);
+
+function updateCountdown() {
+
+    const countdown = document.getElementById("countdown");
+
+    if (!countdown) return;
 
     const now = new Date().getTime();
-
     const distance = birthday - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    if (distance <= 0) {
+        countdown.innerHTML = "🎉 Happy Birthday My Love ❤️";
+        birthdaySurprise();
+        return;
+    }
 
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-    );
-
+    const hours = Math.floor(distance / (1000 * 60 * 60));
     const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
+        (distance % (1000 * 60 * 60)) / (1000 * 60)
     );
-
     const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
+        (distance % (1000 * 60)) / 1000
     );
 
-    document.getElementById("countdown").innerHTML =
-        `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
-
-}, 1000);
-
-if (distance < 0) {
-    document.getElementById("countdown").innerHTML =
-        "🎉 Surprise! Happy Birthday My Love ❤️";
+    countdown.innerHTML =
+        `${hours}h ${minutes}m ${seconds}s`;
 }
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Confetti
 function birthdaySurprise() {
-
-    confetti({
-        particleCount: 250,
-        spread: 180,
-        origin: { y: 0.6 }
-    });
-
+    if (typeof confetti === "function") {
+        confetti({
+            particleCount: 250,
+            spread: 180,
+            origin: { y: 0.6 }
+        });
+    }
 }
+
+// Reasons
 const reasons = [
-"Your smile",
-"Your kindness",
-"Your laugh",
-"Your support",
-"Your honesty",
-"Your beautiful eyes",
-"Your caring nature",
-"Your patience",
-"Your intelligence",
-"Your confidence"
+    "Your smile ❤️",
+    "Your laugh ❤️",
+    "Your kindness ❤️",
+    "Your support ❤️",
+    "Your eyes ❤️",
+    "Your honesty ❤️",
+    "Your hugs ❤️",
+    "Your voice ❤️",
+    "Your patience ❤️",
+    "Everything about you ❤️"
 ];
-const container = document.getElementById("reasonContainer");
 
-reasons.forEach((reason,index)=>{
-
-    container.innerHTML += `
-    <div class="reason-card">
-        ❤️ ${index + 1}. ${reason}
-    </div>
-    `;
-
-});
 let current = 0;
 
-const reasons = [
-"Your smile",
-"Your laugh",
-"Your kindness",
-"Your support"
-];
+function showReason() {
 
-function showReason(){
+    const reason = document.getElementById("reason");
 
-    if(current < reasons.length){
+    if (current < reasons.length) {
 
-        document.getElementById("reason").innerHTML =
-        `❤️ ${current+1}. ${reasons[current]}`;
+        reason.innerHTML =
+            `❤️ ${current + 1}. ${reasons[current]}`;
 
         current++;
+
+    } else {
+
+        reason.innerHTML =
+            "❤️ Infinite reasons remain ❤️";
     }
 }
